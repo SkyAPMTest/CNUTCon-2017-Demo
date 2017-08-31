@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.skywalking.apm.toolkit.trace.ActiveSpan;
 import org.skywalking.apm.toolkit.trace.Trace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,7 @@ public class RemoteGreetDao {
     //@Trace
     public void saveUser(String name) {
         logger.info("save user[{}].", name);
+        ActiveSpan.tag("user.name", name);
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
@@ -48,6 +50,7 @@ public class RemoteGreetDao {
     //@Trace(operationName = "selectUser")
     public void selectUser(String name) {
         logger.info("select user[{}].", name);
+        ActiveSpan.tag("user.name", name);
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {

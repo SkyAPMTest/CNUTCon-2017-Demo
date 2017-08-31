@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.skywalking.apm.cnutcon.liveshow.projecta.dao.GreetDao;
+import org.skywalking.apm.cnutcon.liveshow.projecta.trace.TracerFactory;
 import org.skywalking.apm.toolkit.opentracing.SkywalkingTracer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class GreetService {
     private GreetDao greetDao;
 
     public void sayHello(String name) throws SQLException {
-        Tracer tracer = new SkywalkingTracer();
+        Tracer tracer = TracerFactory.getTracer();
 
         ActiveSpan span = tracer.buildSpan("GreetService/sayHello/" + name).startActive();
         greetDao.saveUser(name);
