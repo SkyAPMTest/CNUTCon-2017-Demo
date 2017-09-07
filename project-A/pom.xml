@@ -27,7 +27,7 @@
 
         <dependency>
             <groupId>org.skywalking</groupId>
-            <artifactId>apm-toolkit-trace-context</artifactId>
+            <artifactId>apm-toolkit-trace</artifactId>
             <version>${skywalking.version}</version>
         </dependency>
 
