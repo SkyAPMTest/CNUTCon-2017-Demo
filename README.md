@@ -11,4 +11,4 @@ Please don't care much about the coding style, the tech stack we used, concentra
 
 1. Deploy skywalking agent for `project-A` and `project-B`
 1. Start `project-A` and `project-B`
-1. Open browser and visit `localhost:8080/hello?name=test`
+1. Open browser and visit `localhost:8081/hello?name=test`
