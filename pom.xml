@@ -17,11 +17,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.3.8.RELEASE</spring.version>
-        <spring-boot-version>1.5.2.RELEASE</spring-boot-version>
+        <spring.version>4.3.18.RELEASE</spring.version>
+        <spring-boot-version>1.5.14.RELEASE</spring-boot-version>
         <log4j.version>2.6.2</log4j.version>
         <h2.version>1.4.196</h2.version>
-        <skywalking.version>3.2-2017</skywalking.version>
+        <skywalking.version>6.0.0-alpha</skywalking.version>
+        <compiler.version>1.8</compiler.version>
     </properties>
 
     <dependencies>
@@ -45,11 +46,11 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.5.3</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--<artifactId>jackson-databind</artifactId>-->
+        <!--<version>2.5.3</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -118,20 +119,15 @@
         </dependency>
 
         <dependency>
-            <groupId>org.skywalking</groupId>
-            <artifactId>apm-toolkit-log4j-2.x</artifactId>
-            <version>${skywalking.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>2.6.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>2.7.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

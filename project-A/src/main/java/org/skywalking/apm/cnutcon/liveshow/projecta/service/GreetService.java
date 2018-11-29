@@ -18,6 +18,7 @@ public class GreetService {
         Tracer tracer = TracerFactory.getTracer();
 
         ActiveSpan span = tracer.buildSpan("GreetService/sayHello/" + name).startActive();
+        span.close();
 
         String remoteResponse = new RestTemplate().getForObject("http://localhost:18081/project-B/remote/" + name, String.class);
         logger.info("remote response: {}", remoteResponse);

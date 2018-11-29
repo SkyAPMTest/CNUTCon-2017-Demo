@@ -1,7 +1,7 @@
 package org.skywalking.apm.cnutcon.liveshow.projecta.trace;
 
 import io.opentracing.Tracer;
-import org.skywalking.apm.toolkit.opentracing.SkywalkingTracer;
+import org.apache.skywalking.apm.toolkit.opentracing.SkywalkingTracer;
 
 public class TracerFactory {
 
